@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloading ....</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="shortcut icon" href="/static/favicon.png" type="image/x-icon">
+
+</head>
+<body>
+
+    <h1>Download your Video/Audio here</h1>
+    <br>
+
+<div class="videoarea">
+<ul class="videobar">
+    <span>Available Video Formats </span>
+    <br>
+    <hr>
+    <br>
+    {% for vid in yt['videos'] %}
+
+    <li>
+        Video Quality:{{vid.resolution}},Size:{{vid.filesize_mb}}Mb &nbsp; <button class="dbtn"><a href="{{vid.url}}">Download</a><img src="/static/d.svg" alt="Download Icon"></button>
+    </li>
+    <br>
+    <hr>
+    <br>
+ {% endfor %}
+</ul>
+</div>
+
+ <br>   
+ <br>   
+ <br>   
+
+<div class="videoarea1">
+    <ul class="videobar">
+        <span>Available Audio Formats </span>
+        <br>
+        <hr>
+        <br>                    
+        {% for aud in yt['audios'] %}
+    
+        <li>
+            Audio Quality:{{aud.abr}},Size:{{aud.filesize_mb}}Mb &nbsp; <button class="dbtn"><a href="{{aud.url}}">Download</a><img src="/static/d.svg" alt="Download Icon"></button>
+        </li>
+        <br>
+        <hr>
+        <br>
+     {% endfor %}
+    </ul>
+    </div>
+
+
+
+<div class="vcard">
+    <div class="thumbnail">
+        <img src="{{yt.thumb}}" alt="Thumbnail">
+    </div>
+
+    <div class="cardbelowarea">
+        <br>
+        <p>Title:{{yt.title}}</p>
+        <br>
+        <p>Views:{{yt.views}}</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>
